@@ -88,3 +88,7 @@ print chr(97)
 #重要 数学运算中True和False分别对应1 0  可以直接运算
 print 232+True
 print 232+False
+
+#python没有！操作符 代替的是not
+if not 3>4:
+    print 'x'

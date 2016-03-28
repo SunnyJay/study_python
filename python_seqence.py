@@ -32,9 +32,10 @@ if 's' in name:
 
 #字符串  python的字符串也是不可变的
 #字符串可以直接比较 安装ascii值比较
-#seq1+seq2  连接两个序列 重要 之前不知道
+#seq1+seq2  连接两个序列 重要 之前不知道 但不能直接连接数字 重要
 sex='man'
 print sex+name
+print 'age'+str(34)  #print 'age'+29 #是错误的
 #格式化操作符 %d %% %g  %f %e %s %x
 print name, '的年龄是%d' % 24
 print '%.2f' % 334.3435

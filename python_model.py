@@ -122,3 +122,17 @@ reload(rs)
 # 用户可以每次只导入包里的特定模块，例如： import sound.efforts.echo   这样就导入了 sound.effects.echo 子模块。它必须通过完整的名称来引用：
 # 　　　　 sound.effects.echo.echofilter(input, output, delay=0.7, atten=4) 
 
+#sys.modules是一个字典，里包含了大量载入的模块
+#print sys.modules.keys()
+
+#阻止属性导入
+#不想导入哪个属性就在属性前加_ 如 import foo._bar
+
+######################################
+#重要：源代码编码
+#只要在源代码开头写上编码指示    -*-
+#    -*- coding:UTF-8 -*-   #-*- coding:gb18030 -*
+######################################
+
+#模块执行：有很多方法可以执行一个模块，如shell、execfile、模块导入
+

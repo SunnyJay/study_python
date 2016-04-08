@@ -82,3 +82,15 @@ print os.path.dirname('c:\\Python\\a.txt') #获得路径名
 # sys模块
 # sys就是你python的环境 注意与os区别
 ############################
+
+# 1 sys.exit() 
+# 立即退出程序并返回调用程序：  sys.exit(1) 状态吗 参数默认是0 表示正常退出
+# 退出程序引发SystemExit异常, 可以捕获异常执行些清理工作 
+# sys.exit()会引发一个异常：SystemExit，如果这个异常没有被捕获，那么python解释器将会退出。如果有捕获此异常的代码，那么这些代码还是会执行。
+# 注意 os.exit()这个一般别用，不执行任何清理就直接退出python
+import sys
+try:
+    sys.exit(1)
+except SystemExit, e:
+    print 'hah'
+print 'nihao' #照样能够执行

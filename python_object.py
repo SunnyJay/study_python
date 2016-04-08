@@ -85,10 +85,20 @@ print ord('3')
 print chr(97)
 
 #布尔类型 
-#重要 数学运算中True和False分别对应1 0  可以直接运算
+#重要 数学运算中True和False分别对应1、0  可以直接运算
 print 232+True
 print 232+False
-
+# 重要！！！    空集合、空字符串、所有值为0的数、None的布尔值 是False
+dict={}
+if not dict:
+    print 'false'
+if 1:
+    print '1'
+if not 0:
+    print 'not 0'
+if not None:
+    print 'not none'    
+    
 #python没有！操作符 代替的是not
 if not 3>4:
     print 'x'

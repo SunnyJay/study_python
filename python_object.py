@@ -5,6 +5,7 @@ Python对象、数字
 
 @author: Administrator
 '''
+import datetime
 
 # type()函数可以得到特定对象的类型信息
 print type(42)
@@ -102,3 +103,71 @@ if not None:
 #python没有！操作符 代替的是not
 if not 3>4:
     print 'x'
+    
+######################################
+# 时间 专题
+#####################################
+# 时间间隔是以秒为单位的浮点小数。
+#Python 提供了一个 time \ calendar\datetime 模块可以用于格式化日期和时间
+
+# 重要区别： time是归类在Generic Operating System Services中，换句话说， 它提供的功能是更加接近于操作系统层面的。
+#         由于是基于Unix Timestamp，所以其所能表述的日期范围被限定在 1970 - 2038 之间
+#         所以，如果你写的代码需要处理在前面所述范围之外的日期，那可能需要考虑使用datetime模块更好
+
+
+
+
+#########################
+# time 
+##########################
+
+# Python 的 time 模块下有很多函数可以转换常见日期格式。如函数time.time()用于获取当前时间戳
+import time
+print time.time()  #当然时间戳无法表示1970前
+
+# 1. 获取当前时间 
+# struct_time元组（类似linux c中结构体）  timetuple
+# localtime方法
+localtime = time.localtime(time.time())
+print "本地时间为 :", localtime
+
+# 2. 获取格式化的时间
+#    最简单的获取可读的时间模式的函数是asctime():  asc!
+localtime = time.asctime( time.localtime(time.time()) )  # 进一步封装
+print localtime
+
+# 3. 格式化日期, 重要！
+# 使用 time 模块的 strftime 方法来格式化日期
+print time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()) 
+
+# 4. 转换时间戳！重要  mktime
+timestamp=time.mktime(time.localtime())
+print timestamp
+mytime =  time.gmtime(timestamp) #转换成Localtime
+print mytime
+
+#########################
+# datetime  比time更好用
+#########################
+#    在datetime 模块,用得比较多的是 datetime.datetime 和 datetime.timedelta
+#    使用datetime.datetime.now()可以获得当前时刻的
+
+print datetime.datetime.now() #获取当前datetime
+print datetime.date.today()  # 获取当天date
+
+#转换：datetime <=> string
+print datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")  # strftime
+
+mydatetime =  datetime.datetime.strptime("2014-12-31 18:20:10", "%Y-%m-%d %H:%M:%S") 
+print type(mydatetime)
+
+#转换datetime <=> date
+print datetime.datetime.now().date()
+
+#转换datetime <=> timestamp
+now = datetime.datetime.now()
+timestamp = time.mktime(now.timetuple())
+
+print datetime.datetime.fromtimestamp(1421077403.0) #这个重要！
+
+

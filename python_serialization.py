@@ -84,11 +84,7 @@ s = Student('Bob', 20, 88)
 
 #先提供一个转换函数  先转换成 dict,然后再转换为JSON
 def student2dict(std):
-    return {  
-        'name': std.name,
-        'age': std.age,
-        'score': std.score
-    }
+    return {  'name': std.name,'age': std.age,'score': std.score}  #dict
 print(json.dumps(s, default=student2dict)) #指定转换函数
 
 # 2:object_hook
@@ -99,5 +95,7 @@ def dict2student(d):
 json_str = '{"age": 20, "score": 88, "name": "Bob"}'
 student = json.loads(json_str, object_hook=dict2student)  #loads先转为dict, dict2student再转为Student
 print student.name
+
+
 
     

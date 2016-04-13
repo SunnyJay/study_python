@@ -1,4 +1,5 @@
-#-*- coding:utf-8 -*-
+#-*- coding:utf-8 -*-  
+# 开头这个不需要 本身就是UTF-8编码
 '''
 Created on 2016年4月11日
 常用内置模块
@@ -139,4 +140,195 @@ xml = r'''<?xml version="1.0"?>
 </ol>
 '''
 parser.Parse(xml)
+
+################################
+# 五、HTML Parser
+
+# 如果我们要编写一个搜索引擎:第一步是用爬虫把目标网站的页面抓下来，第二步就是解析该HTML页面，看看里面的内容到底是新闻、图片还是视频内存。
+# HTML本质上是XML的子集,但是HTML的语法没有XML那么严格，所以不能用标准的DOM或SAX来解析HTML。
+################################
+
+from HTMLParser import HTMLParser
+class MyHTMLParser(HTMLParser):
+
+    def handle_starttag(self, tag, attrs):
+        print('<%s>' % tag)
+
+    def handle_endtag(self, tag):
+        print('</%s>' % tag)
+
+    def handle_startendtag(self, tag, attrs):
+        print('<%s/>' % tag)
+
+    def handle_data(self, data):
+        print('data')
+
+    def handle_comment(self, data):
+        print('<!-- -->')
+
+    def handle_entityref(self, name):
+        print('&%s;' % name)
+
+    def handle_charref(self, name):
+        print('&#%s;' % name)
+        
+parser = MyHTMLParser()
+parser.feed('<html><head></head><body><p>Some <a href=\"#\">html</a> tutorial...<br>END</p></body></html>')        
+    
+################################
+# 六、常用的第三方模块
+
+# 基本上，所有的第三方模块都会在PyPI - the Python Package Index上注册，只要找到对应的模块名字，即可用easy_install或者pip安装
+################################
+
+################################
+# 七、图形界面
+
+# Python支持多种图形界面的第三方库：
+#   Tk wxWidgets Qt GTK
+################################
+
+
+
+
+################################
+# 八、urllib
+
+# urllib提供了一系列用于操作URL的功能。
+# 3.x的版本urllib与urllib2已经合并为一个urllib库
+# Python的urllib和urllib2模块都做与请求URL相关的操作，但他们提供不同的功能。他们两个最显着的差异如下：
+
+# urllib2可以接受一个Request对象，并以此可以来设置一个URL的headers，但是urllib只接收一个URL。这意味着，你不能伪装你的用户代理字符串等。
+# urllib模块可以提供进行urlencode的方法，该方法用于GET查询字符串的生成，urllib2的不具有这样的功能。这就是urllib与urllib2经常在一起使用的原因。
+################################
+
+import urllib2
+ 
+# （1）最简单的应用 （request是默认的）
+url = r'http://www.baidu.com'
+html = urllib2.urlopen(url).read(100)  #可指定读取大小
+print html
+
+   # urllib2.urlopen(url[, data][, timeout])
+   # urlopen方法是urllib2模块最常用也最简单的方法，它打开URL网址，url参数可以是一个字符串url或者是一个Request对象
+
+
+# （2）urllib2提供了request的类，可以让用户在发送请求前先构造一个request的对象，然后通过urllib2.urlopen方法来发送请求
+# 自定义request对象  发送Get请求
+import urllib2
+url = r'http://www.baidu.com'
+req = urllib2.Request(url) #当然你还可以更改其他request属性 如header data, 但url是必须的
+html = urllib2.urlopen(req).read(100)
+print html
+
+    # class urllib2.Request(url[, data][, headers][, origin_req_host][, unverifiable])
+    # data:    重要！！！当请求含有data参数时，HTTP的请求为POST，而不是GET。
+    #          数据应该是缓存在一个标准的application/x-www-form-urlencoded格式中。urllib.urlencode()函数用映射或2元组，返回一个这种格式的字符串。如post表单的内容
+    # header: 
+    
+# （3）自定义数据
+import urllib 
+import urllib2  
+  
+url = 'http://www.baidu.com/' 
+values = {'name' : 'Michael Foord', 'location' : 'Northampton','language' : 'Python' }   
+data = urllib.urlencode(values)  #将你要发的数据编码成标准格式的字符串，才能发出去 只有urllib有这个方法 。
+req = urllib2.Request(url,data)  
+response = urllib2.urlopen(req)  
+the_page = response.read(100)
+print the_page
+
+# （4）如何构造get请求呢？自定义url呀
+import urllib 
+import urllib2  
+  
+url = 'http://www.baidu.com/s'    #https://www.baidu.com/s?wd=查询关键字 
+values = {'wd':'杨彦星'}   
+data = urllib.urlencode(values)
+print data 
+url2 = url+'?'+data # 说明不管post还是get,数据的格式都是一样的，只不过一个在请求里，一个在url里
+response = urllib2.urlopen(url2)  
+the_page = response.read(100)
+ 
+print the_page
+
+
+# （5）header
+# headers——是字典类型，头字典可以作为参数在request时直接传入，也可以把每个键和值作为参数调用add_header()方法来添加。
+# 制造post请求
+import urllib
+import urllib2
+url = 'http://10.1.1.71:5000/login'
+user_agent = 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)'
+values = {'username' : 'admin',  'password' : 'default' }    # 少写一个就错了 因为网页服务端要解析这两个参数，结果没提供，就出错
+
+headers = { 'User-Agent' : user_agent }
+data = urllib.urlencode(values)
+req = urllib2.Request(url, data, headers)  
+response = urllib2.urlopen(req,timeout=10)
+the_page = response.read()
+#print the_page
+
+
+# (6)cookie
+
+# 当你获取一个 URL 你使用一个 opener(一个 urllib2.OpenerDirector 的实例)。在前面，我们都是使用的默认的 opener，也就是 urlopen。
+# 它是一个特殊的 opener，可以理解成opener 的一个特殊实例，传入的参数仅仅是 url，data，timeout。
+# 如果我们需要用到 Cookie，只用这个 opener 是不能达到目的的，所以我们需要创建更一般的opener 来实现对 Cookie 的设置。
+
+# 1.先创建cookie对象（该模块主要的对象有 CookieJar、FileCookieJar、MozillaCookieJar、LWPCookieJar。）
+# 2.再创建cookie处理器
+# 3.再用处理器创建一个新的opener build_opener
+
+import urllib
+import urllib2
+import cookielib
+
+filename = 'cookie.txt'
+#声明一个MozillaCookieJar对象实例来保存cookie，之后写入文件
+cookie = cookielib.MozillaCookieJar(filename)
+opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cookie)) #build_opener
+postdata = urllib.urlencode({
+           'username' : 'admin',  'password' : 'default'
+        })
+#登录教务系统的URL
+loginUrl = 'http://10.1.1.71:5000/login'
+
+#模拟登录，并把cookie保存到变量
+result = opener.open(loginUrl,postdata)   #除了这种方式，还可以使用install_opener配合urlopen 如下面：
+
+#urllib2.install_opener(opener)  #两种方式都可以 但是不建议使用这种
+#result = urllib2.urlopen(loginUrl,postdata)
+
+#保存cookie到cookie.txt中
+cookie.save(ignore_discard=True, ignore_expires=True)
+
+#利用cookie请求访问另一个网址，此网址是成绩查询网址
+gradeUrl = 'http://10.1.1.71:5000/login'
+#请求访问成绩查询网址
+result = opener.open(gradeUrl) #自动使用cookie
+print result.read()  
+
+
+
+
+
+
+import urllib2
+req = urllib2.Request('http://blog.csdn.net/cqcre')
+try:
+    urllib2.urlopen(req)
+except urllib2.HTTPError, e:
+    print e.code,e.reason
+except urllib2.URLError, e:
+    print e.reason
+else:
+    print "OK"  
+
+
+# （7）反盗链
+# 某些站点有所谓的反盗链设置，其实说穿了很简单，
+# 就是检查你发送请求的header里面，referer站点是不是他自己
+
+headers = { 'User-Agent' : user_agent,'Referer':'http://www.cnbeta.com/articles' }
 

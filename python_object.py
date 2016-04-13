@@ -1,95 +1,95 @@
-#-*- coding:gb18030 -*-
+#-*- coding:utf-8 -*- 
 
 '''
-Python¶ÔÏó¡¢Êı×Ö
+Pythonå¯¹è±¡ã€æ•°å­—
 
 @author: Administrator
 '''
 import datetime
 
-# type()º¯Êı¿ÉÒÔµÃµ½ÌØ¶¨¶ÔÏóµÄÀàĞÍĞÅÏ¢
+# type()å‡½æ•°å¯ä»¥å¾—åˆ°ç‰¹å®šå¯¹è±¡çš„ç±»å‹ä¿¡æ¯
 print type(42)
 print type('sunnanjun')
-# ÀàĞÍÒ²ÊÇ¶ÔÏó£¬ËùÓĞÀàĞÍ¶ÔÏóµÄÀàĞÍÊÇtype ÊÇËùÓĞpythonÀàĞÍµÄ¸ùºÍËùÓĞpython±ê×¼ÀàµÄÄ¬ÈÏÔªÀàmetaclass
+# ç±»å‹ä¹Ÿæ˜¯å¯¹è±¡ï¼Œæ‰€æœ‰ç±»å‹å¯¹è±¡çš„ç±»å‹æ˜¯type æ˜¯æ‰€æœ‰pythonç±»å‹çš„æ ¹å’Œæ‰€æœ‰pythonæ ‡å‡†ç±»çš„é»˜è®¤å…ƒç±»metaclass
 print type(type(42))
 
-# NoneÊÇpythonµÄNull¶ÔÏó(Æä²¼¶ûÖµ×ÜÊÇFalse)
+# Noneæ˜¯pythonçš„Nullå¯¹è±¡(å…¶å¸ƒå°”å€¼æ€»æ˜¯False)
 
-#¶ÔÏóÖµ±È½Ï
+#å¯¹è±¡å€¼æ¯”è¾ƒ
 print 2 != 2
-print 2 <> 2 #ÕâÖÖĞ´·¨²»½¨Òé
+print 2 <> 2 #è¿™ç§å†™æ³•ä¸å»ºè®®
 
-#¶ÔÏóÒıÓÃ±È½Ï£¨¼´¶ÔÏóÉí·İ±È¼Û£©id·½·¨Óëis¹Ø¼ü×Ö
+#å¯¹è±¡å¼•ç”¨æ¯”è¾ƒï¼ˆå³å¯¹è±¡èº«ä»½æ¯”ä»·ï¼‰idæ–¹æ³•ä¸iså…³é”®å­—
 a = 'sun'; b = 'sun';c = 'nan'
-print id(a) == id(b) #ÓëÏÂÃæµÈÍ¬
+print id(a) == id(b) #ä¸ä¸‹é¢ç­‰åŒ
 print a is b 
 print a is not c
 
-#id·½·¨ »ñµÃ¶ÔÏóµÄÒıÓÃÖµ
+#idæ–¹æ³• è·å¾—å¯¹è±¡çš„å¼•ç”¨å€¼
 print id(a), id(b)
 
-#²¼¶ûÀàĞÍ and or not
+#å¸ƒå°”ç±»å‹ and or not
 print not(a is b)
 
-#pythonÖ§³ÖÕâÖÖÒ»¸ö±í´ïÊ½¶àÖÖ±È½Ï²Ù×÷  3<4<5
+#pythonæ”¯æŒè¿™ç§ä¸€ä¸ªè¡¨è¾¾å¼å¤šç§æ¯”è¾ƒæ“ä½œ  3<4<5
 print 3<4<7
 a = 4
 if 2<a<5:
    print 'OK'
 
-#±ê×¼ÀàĞÍÄÚ½¨º¯Êı cmp str type repr»ò`obj` ËûÃÇ¶¼ÓÃÓÚ»ù±¾ÀàĞÍ
-print cmp(3,4) #·µ»Ø-1 0 1
-print str(3) #Õâ¸öÖØÒª ·µ»Ø¶ÔÏóµÄ¿É¶ÁĞÔºÃµÄ×Ö·û´®£¬¶ÔÓÃ»§ÓÑºÃ
-print repr(3),`3` #×¢ÒâÓëstrµÄÇø±ğ£¬Õâ¸öÊÇ¹Ù·½×Ö·û´®±íÊ¾£¬¶ÔpythonÓÑºÃ
+#æ ‡å‡†ç±»å‹å†…å»ºå‡½æ•° cmp str type repræˆ–`obj` ä»–ä»¬éƒ½ç”¨äºåŸºæœ¬ç±»å‹
+print cmp(3,4) #è¿”å›-1 0 1
+print str(3) #è¿™ä¸ªé‡è¦ è¿”å›å¯¹è±¡çš„å¯è¯»æ€§å¥½çš„å­—ç¬¦ä¸²ï¼Œå¯¹ç”¨æˆ·å‹å¥½
+print repr(3),`3` #æ³¨æ„ä¸strçš„åŒºåˆ«ï¼Œè¿™ä¸ªæ˜¯å®˜æ–¹å­—ç¬¦ä¸²è¡¨ç¤ºï¼Œå¯¹pythonå‹å¥½
 
-#python²»Ö§³Ö·½·¨»òº¯ÊıÖØÔØ£¡ÇĞ¼Ç£¡
+#pythonä¸æ”¯æŒæ–¹æ³•æˆ–å‡½æ•°é‡è½½ï¼åˆ‡è®°ï¼
 print type([]),type({}),type(())
 
-#Ê¹ÓÃisinstance  Ê×ÏÈµ¼ÈëtypesÄ£¿é
-import types #»òfrom types import IntType
+#ä½¿ç”¨isinstance  é¦–å…ˆå¯¼å…¥typesæ¨¡å—
+import types #æˆ–from types import IntType
 num=4
 if type(num)==types.IntType:
     print 'is int'
-if isinstance(num, int): #intÆäÊµÊÇ¸öÀà
+if isinstance(num, int): #intå…¶å®æ˜¯ä¸ªç±»
     print 'is int'
 
-#python²»Ö§³ÖµÄÀàĞÍ
+#pythonä¸æ”¯æŒçš„ç±»å‹
 #char byte
-#pythonÖ§³ÖµÄÊı×ÖÀàĞÍ£º
-#ÕûĞÍ¡¢³¤ÕûĞÍ¡¢²¼¶ûĞÍ¡¢Ë«¾«¶È¸¡µãĞÍ¡¢Ê®½øÖÆ¸¡µãĞÍ¡¢¸´Êı
-#python±ê×¼ÕûĞÍµÈÍ¬ÓÚcµÄlong
-#³¤ÕûĞÍ¼ÓL¼´¿É
+#pythonæ”¯æŒçš„æ•°å­—ç±»å‹ï¼š
+#æ•´å‹ã€é•¿æ•´å‹ã€å¸ƒå°”å‹ã€åŒç²¾åº¦æµ®ç‚¹å‹ã€åè¿›åˆ¶æµ®ç‚¹å‹ã€å¤æ•°
+#pythonæ ‡å‡†æ•´å‹ç­‰åŒäºcçš„long
+#é•¿æ•´å‹åŠ Lå³å¯
 num = 12234454546545L
 print num
-#Î´À´½«Í³Ò»ÕûĞÍºÍ³¤ÕûĞÍ ÓÃ»§¸Ğ¾õ²»µ½³¤ÕûĞÍµÄ´æÔÚ£¬±ØÒªÊ±ÕûĞÍ»á×Ô¶¯×ª»»Îª³¤
+#æœªæ¥å°†ç»Ÿä¸€æ•´å‹å’Œé•¿æ•´å‹ ç”¨æˆ·æ„Ÿè§‰ä¸åˆ°é•¿æ•´å‹çš„å­˜åœ¨ï¼Œå¿…è¦æ—¶æ•´å‹ä¼šè‡ªåŠ¨è½¬æ¢ä¸ºé•¿
 
-#python³ı·¨ºÍÆäËûÓïÑÔÒ»Ñù
+#pythoné™¤æ³•å’Œå…¶ä»–è¯­è¨€ä¸€æ ·
 print 1/2,1.0/2.0,8%3
-#ÃİÔËËã
+#å¹‚è¿ç®—
 print 3**3 #pow
-#Î»²Ù×÷·û
-print ~1 #°´Î»È¡·´
+#ä½æ“ä½œç¬¦
+print ~1 #æŒ‰ä½å–å
 
-#Õë¶ÔÊı×ÖÀàĞÍµÄÄÚ½¨º¯Êı ÖØÒª
-#int() long() float() complex() bool()  ×¢ÒâpythonÊÇÓĞ²¼¶ûÀàĞÍµÄ
+#é’ˆå¯¹æ•°å­—ç±»å‹çš„å†…å»ºå‡½æ•° é‡è¦
+#int() long() float() complex() bool()  æ³¨æ„pythonæ˜¯æœ‰å¸ƒå°”ç±»å‹çš„
 print int(23.4),float(4),bool(3),bool(0),bool(-1)
-#abs() pow() round()ËÄÉáÎåÈë
+#abs() pow() round()å››èˆäº”å…¥
 print abs(-4),pow(3,3)
 
-#½øÖÆ×ª»»º¯Êı Ö±½Ó·µ»Ø¶ÔÏó½øÖÆ×Ö·û´® ÖØÒª
+#è¿›åˆ¶è½¬æ¢å‡½æ•° ç›´æ¥è¿”å›å¯¹è±¡è¿›åˆ¶å­—ç¬¦ä¸² é‡è¦
 #hex()  oct()
 print hex(234)
-print type(hex(234)) #·µ»ØÀàĞÍÊÇstr
+print type(hex(234)) #è¿”å›ç±»å‹æ˜¯str
 
-#ascii×ª»»º¯Êı ÖØÒª ord chr
+#asciiè½¬æ¢å‡½æ•° é‡è¦ ord chr
 print ord('3')
 print chr(97)
 
-#²¼¶ûÀàĞÍ 
-#ÖØÒª ÊıÑ§ÔËËãÖĞTrueºÍFalse·Ö±ğ¶ÔÓ¦1¡¢0  ¿ÉÒÔÖ±½ÓÔËËã
+#å¸ƒå°”ç±»å‹ 
+#é‡è¦ æ•°å­¦è¿ç®—ä¸­Trueå’ŒFalseåˆ†åˆ«å¯¹åº”1ã€0  å¯ä»¥ç›´æ¥è¿ç®—
 print 232+True
 print 232+False
-# ÖØÒª£¡£¡£¡    ¿Õ¼¯ºÏ¡¢¿Õ×Ö·û´®¡¢ËùÓĞÖµÎª0µÄÊı¡¢NoneµÄ²¼¶ûÖµ ÊÇFalse
+# é‡è¦ï¼ï¼ï¼    ç©ºé›†åˆã€ç©ºå­—ç¬¦ä¸²ã€æ‰€æœ‰å€¼ä¸º0çš„æ•°ã€Noneçš„å¸ƒå°”å€¼ æ˜¯False
 dict={}
 if not dict:
     print 'false'
@@ -100,19 +100,19 @@ if not 0:
 if not None:
     print 'not none'    
     
-#pythonÃ»ÓĞ£¡²Ù×÷·û ´úÌæµÄÊÇnot
+#pythonæ²¡æœ‰ï¼æ“ä½œç¬¦ ä»£æ›¿çš„æ˜¯not
 if not 3>4:
     print 'x'
     
 ######################################
-# Ê±¼ä ×¨Ìâ
+# æ—¶é—´ ä¸“é¢˜
 #####################################
-# Ê±¼ä¼ä¸ôÊÇÒÔÃëÎªµ¥Î»µÄ¸¡µãĞ¡Êı¡£
-#Python Ìá¹©ÁËÒ»¸ö time \ calendar\datetime Ä£¿é¿ÉÒÔÓÃÓÚ¸ñÊ½»¯ÈÕÆÚºÍÊ±¼ä
+# æ—¶é—´é—´éš”æ˜¯ä»¥ç§’ä¸ºå•ä½çš„æµ®ç‚¹å°æ•°ã€‚
+#Python æä¾›äº†ä¸€ä¸ª time \ calendar\datetime æ¨¡å—å¯ä»¥ç”¨äºæ ¼å¼åŒ–æ—¥æœŸå’Œæ—¶é—´
 
-# ÖØÒªÇø±ğ£º timeÊÇ¹éÀàÔÚGeneric Operating System ServicesÖĞ£¬»»¾ä»°Ëµ£¬ ËüÌá¹©µÄ¹¦ÄÜÊÇ¸ü¼Ó½Ó½üÓÚ²Ù×÷ÏµÍ³²ãÃæµÄ¡£
-#         ÓÉÓÚÊÇ»ùÓÚUnix Timestamp£¬ËùÒÔÆäËùÄÜ±íÊöµÄÈÕÆÚ·¶Î§±»ÏŞ¶¨ÔÚ 1970 - 2038 Ö®¼ä
-#         ËùÒÔ£¬Èç¹ûÄãĞ´µÄ´úÂëĞèÒª´¦ÀíÔÚÇ°ÃæËùÊö·¶Î§Ö®ÍâµÄÈÕÆÚ£¬ÄÇ¿ÉÄÜĞèÒª¿¼ÂÇÊ¹ÓÃdatetimeÄ£¿é¸üºÃ
+# é‡è¦åŒºåˆ«ï¼š timeæ˜¯å½’ç±»åœ¨Generic Operating System Servicesä¸­ï¼Œæ¢å¥è¯è¯´ï¼Œ å®ƒæä¾›çš„åŠŸèƒ½æ˜¯æ›´åŠ æ¥è¿‘äºæ“ä½œç³»ç»Ÿå±‚é¢çš„ã€‚
+#         ç”±äºæ˜¯åŸºäºUnix Timestampï¼Œæ‰€ä»¥å…¶æ‰€èƒ½è¡¨è¿°çš„æ—¥æœŸèŒƒå›´è¢«é™å®šåœ¨ 1970 - 2038 ä¹‹é—´
+#         æ‰€ä»¥ï¼Œå¦‚æœä½ å†™çš„ä»£ç éœ€è¦å¤„ç†åœ¨å‰é¢æ‰€è¿°èŒƒå›´ä¹‹å¤–çš„æ—¥æœŸï¼Œé‚£å¯èƒ½éœ€è¦è€ƒè™‘ä½¿ç”¨datetimeæ¨¡å—æ›´å¥½
 
 
 
@@ -121,53 +121,53 @@ if not 3>4:
 # time 
 ##########################
 
-# Python µÄ time Ä£¿éÏÂÓĞºÜ¶àº¯Êı¿ÉÒÔ×ª»»³£¼ûÈÕÆÚ¸ñÊ½¡£Èçº¯Êıtime.time()ÓÃÓÚ»ñÈ¡µ±Ç°Ê±¼ä´Á
+# Python çš„ time æ¨¡å—ä¸‹æœ‰å¾ˆå¤šå‡½æ•°å¯ä»¥è½¬æ¢å¸¸è§æ—¥æœŸæ ¼å¼ã€‚å¦‚å‡½æ•°time.time()ç”¨äºè·å–å½“å‰æ—¶é—´æˆ³
 import time
-print time.time()  #µ±È»Ê±¼ä´ÁÎŞ·¨±íÊ¾1970Ç°
+print time.time()  #å½“ç„¶æ—¶é—´æˆ³æ— æ³•è¡¨ç¤º1970å‰
 
-# 1. »ñÈ¡µ±Ç°Ê±¼ä 
-# struct_timeÔª×é£¨ÀàËÆlinux cÖĞ½á¹¹Ìå£©  timetuple
-# localtime·½·¨
+# 1. è·å–å½“å‰æ—¶é—´ 
+# struct_timeå…ƒç»„ï¼ˆç±»ä¼¼linux cä¸­ç»“æ„ä½“ï¼‰  timetuple
+# localtimeæ–¹æ³•
 localtime = time.localtime(time.time())
-print "±¾µØÊ±¼äÎª :", localtime
+print "æœ¬åœ°æ—¶é—´ä¸º :", localtime
 
-# 2. »ñÈ¡¸ñÊ½»¯µÄÊ±¼ä
-#    ×î¼òµ¥µÄ»ñÈ¡¿É¶ÁµÄÊ±¼äÄ£Ê½µÄº¯ÊıÊÇasctime():  asc!
-localtime = time.asctime( time.localtime(time.time()) )  # ½øÒ»²½·â×°
+# 2. è·å–æ ¼å¼åŒ–çš„æ—¶é—´
+#    æœ€ç®€å•çš„è·å–å¯è¯»çš„æ—¶é—´æ¨¡å¼çš„å‡½æ•°æ˜¯asctime():  asc!
+localtime = time.asctime( time.localtime(time.time()) )  # è¿›ä¸€æ­¥å°è£…
 print localtime
 
-# 3. ¸ñÊ½»¯ÈÕÆÚ, ÖØÒª£¡
-# Ê¹ÓÃ time Ä£¿éµÄ strftime ·½·¨À´¸ñÊ½»¯ÈÕÆÚ
+# 3. æ ¼å¼åŒ–æ—¥æœŸ, é‡è¦ï¼
+# ä½¿ç”¨ time æ¨¡å—çš„ strftime æ–¹æ³•æ¥æ ¼å¼åŒ–æ—¥æœŸ
 print time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()) 
 
-# 4. ×ª»»Ê±¼ä´Á£¡ÖØÒª  mktime
+# 4. è½¬æ¢æ—¶é—´æˆ³ï¼é‡è¦  mktime
 timestamp=time.mktime(time.localtime())
 print timestamp
-mytime =  time.gmtime(timestamp) #×ª»»³ÉLocaltime
+mytime =  time.gmtime(timestamp) #è½¬æ¢æˆLocaltime
 print mytime
 
 #########################
-# datetime  ±Ètime¸üºÃÓÃ
+# datetime  æ¯”timeæ›´å¥½ç”¨
 #########################
-#    ÔÚdatetime Ä£¿é,ÓÃµÃ±È½Ï¶àµÄÊÇ datetime.datetime ºÍ datetime.timedelta
-#    Ê¹ÓÃdatetime.datetime.now()¿ÉÒÔ»ñµÃµ±Ç°Ê±¿ÌµÄ
+#    åœ¨datetime æ¨¡å—,ç”¨å¾—æ¯”è¾ƒå¤šçš„æ˜¯ datetime.datetime å’Œ datetime.timedelta
+#    ä½¿ç”¨datetime.datetime.now()å¯ä»¥è·å¾—å½“å‰æ—¶åˆ»çš„
 
-print datetime.datetime.now() #»ñÈ¡µ±Ç°datetime
-print datetime.date.today()  # »ñÈ¡µ±Ììdate
+print datetime.datetime.now() #è·å–å½“å‰datetime
+print datetime.date.today()  # è·å–å½“å¤©date
 
-#×ª»»£ºdatetime <=> string
+#è½¬æ¢ï¼šdatetime <=> string
 print datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")  # strftime
 
 mydatetime =  datetime.datetime.strptime("2014-12-31 18:20:10", "%Y-%m-%d %H:%M:%S") 
 print type(mydatetime)
 
-#×ª»»datetime <=> date
+#è½¬æ¢datetime <=> date
 print datetime.datetime.now().date()
 
-#×ª»»datetime <=> timestamp
+#è½¬æ¢datetime <=> timestamp
 now = datetime.datetime.now()
 timestamp = time.mktime(now.timetuple())
 
-print datetime.datetime.fromtimestamp(1421077403.0) #Õâ¸öÖØÒª£¡
+print datetime.datetime.fromtimestamp(1421077403.0) #è¿™ä¸ªé‡è¦ï¼
 
 

@@ -1,60 +1,60 @@
-#-*- coding:gb18030 -*
+#-*- coding:utf-8 -*- 
 '''
-Created on 2016Äê3ÔÂ18ÈÕ
+Created on 2016å¹´3æœˆ18æ—¥
 
-Ìõ¼þºÍÑ­»·
+æ¡ä»¶å’Œå¾ªçŽ¯
 @author: Administrator
 '''
 
-#ÈýÔª²Ù×÷·û  X if C else Y
-x, y =4, 3#ÕâÖÖÐ´·¨ÎÒ¾¹È»²»ÖªµÀ #ÕâÊÇËùÎ½µÄ¶àÔª¸³Öµ
+#ä¸‰å…ƒæ“ä½œç¬¦  X if C else Y
+x, y =4, 3#è¿™ç§å†™æ³•æˆ‘ç«Ÿç„¶ä¸çŸ¥é“ #è¿™æ˜¯æ‰€è°“çš„å¤šå…ƒèµ‹å€¼
 smaller = x if x < y else y
 print smaller
 
-#¶àÔª¸³Öµ  ÆäÊµÁ½±ßÊÇÔª×æ
+#å¤šå…ƒèµ‹å€¼  å…¶å®žä¸¤è¾¹æ˜¯å…ƒç¥–
 x,y,z=1,2,'a'
 print x,y,z 
 
-#½»»»Á½¸öÖµ
+#äº¤æ¢ä¸¤ä¸ªå€¼
 x,y=y,x
 print x,y
 
-#¶àÖØ¸³Öµ
+#å¤šé‡èµ‹å€¼
 x=y=z=1
 
-#forÑ­»·
+#forå¾ªçŽ¯
 for i in 'sunnanjun':
     print i
     
-#forµü´úÈýÖÖ·½·¨£ºÐòÁÐÏîµü´ú¡¢Ë÷Òýµü´ú¡¢enumerateµü´ú
+#forè¿­ä»£ä¸‰ç§æ–¹æ³•ï¼šåºåˆ—é¡¹è¿­ä»£ã€ç´¢å¼•è¿­ä»£ã€enumerateè¿­ä»£
 for i in range(len('sunnanjun')):
     print 'sunnanjun'[i]
 
-for i in enumerate('sunnanjun'):  #Ã¿¸öiÊÇÒ»¸öÔª×æ
+for i in enumerate('sunnanjun'):  #æ¯ä¸ªiæ˜¯ä¸€ä¸ªå…ƒç¥–
     print i
 
-#range·½·¨  ÖØÒª  Ëü»á·µ»ØÒ»¸öÁÐ±í
+#rangeæ–¹æ³•  é‡è¦  å®ƒä¼šè¿”å›žä¸€ä¸ªåˆ—è¡¨
 # range(begin,end,step=1)
 # range(2,19,3)
-# range(3,5) ±íÊ¾3 4 5
-# range(5) ±íÊ¾0-4  ÕâÊÇ×î¼òµ¥µÄÓï·¨
+# range(3,5) è¡¨ç¤º3 4 5
+# range(5) è¡¨ç¤º0-4  è¿™æ˜¯æœ€ç®€å•çš„è¯­æ³•
 print range(3,19,3)
 print range(6)
 
-#xrange  ÐÔÄÜÔ¶¸ßÓÚrange
+#xrange  æ€§èƒ½è¿œé«˜äºŽrange
 
 #sorted reversed enumerate zip
-#zip£¿
+#zipï¼Ÿ
 
-#passÓï¾ä
-#passÓï¾ä²»×öÈÎºÎÊÂ NOP(no operation)
-#ÖØÒª pass¿ÉÒÔ×÷Îª¿ª·¢¼¼ÇÉ ¼´¿ÉÒÔÓÃÀ´ÏÈÕ¼Î» ÒÔºóÔÙÍê³É±àÐ´
+#passè¯­å¥
+#passè¯­å¥ä¸åšä»»ä½•äº‹ NOP(no operation)
+#é‡è¦ passå¯ä»¥ä½œä¸ºå¼€å‘æŠ€å·§ å³å¯ä»¥ç”¨æ¥å…ˆå ä½ ä»¥åŽå†å®Œæˆç¼–å†™
 def fun():
     pass
 
-#ÖØÒª whileºÍelse
-#³ýÁËifelseÖÐ£¬ whileÒ²¿ÉºÍelseÅäºÏÊ¹ÓÃ
-#else»áÔÚwhile½áÊøºóÖ´ÐÐ£¬°üÀ¨break!
+#é‡è¦ whileå’Œelse
+#é™¤äº†ifelseä¸­ï¼Œ whileä¹Ÿå¯å’Œelseé…åˆä½¿ç”¨
+#elseä¼šåœ¨whileç»“æŸåŽæ‰§è¡Œï¼ŒåŒ…æ‹¬break!
 count = 0
 while count>4:
     if count >3:
@@ -62,21 +62,21 @@ while count>4:
     count +=1
     
 else:
-    print count, 'Ñ­»·½áÊø'                                                                                                                                                                                                                                                                
+    print count, 'å¾ªçŽ¯ç»“æŸ'                                                                                                                                                                                                                                                                
 
-#µü´úÆ÷ºÍiter()º¯Êý
-#¶ÔÒ»¸ö¶ÔÏóµ÷ÓÃiter()·½·¨¾ÍÄÜµÃµ½µü´úÆ÷
+#è¿­ä»£å™¨å’Œiter()å‡½æ•°
+#å¯¹ä¸€ä¸ªå¯¹è±¡è°ƒç”¨iter()æ–¹æ³•å°±èƒ½å¾—åˆ°è¿­ä»£å™¨
 myTuple=(123,'zxs',3453.6)
 i=iter(myTuple)
 print i.next()
-#ÖØÒª ÐòÁÐ»á×Ô¶¯µÄ²úÉúµü´úÆ÷£¬for i in seq:  Êµ¼ÊÉÏÊÐÊ¹ÓÃµü´úÆ÷µÄ¡£
+#é‡è¦ åºåˆ—ä¼šè‡ªåŠ¨çš„äº§ç”Ÿè¿­ä»£å™¨ï¼Œfor i in seq:  å®žé™…ä¸Šå¸‚ä½¿ç”¨è¿­ä»£å™¨çš„ã€‚
 
-#×ÖµäºÍÎÄ¼þÒ²ÊÇ¿ÉÒÔµü´úµÄ
-#¿É±äµü´úÆ÷ ²»¿É±äµü´úÆ÷
+#å­—å…¸å’Œæ–‡ä»¶ä¹Ÿæ˜¯å¯ä»¥è¿­ä»£çš„
+#å¯å˜è¿­ä»£å™¨ ä¸å¯å˜è¿­ä»£å™¨
 
-#ÁÐ±í½âÎö   list comps  ÓÃÓÚ¶¯Ì¬´´½¨ÁÐ±í
-#Õâ¸öÔÝÊ±²»ÑÐ¾¿
+#åˆ—è¡¨è§£æž   list comps  ç”¨äºŽåŠ¨æ€åˆ›å»ºåˆ—è¡¨
+#è¿™ä¸ªæš‚æ—¶ä¸ç ”ç©¶
 
 
-#Éú³ÉÆ÷±í´ïÊ½
-#Õâ¸öÔÝÊ±²»ÑÐ¾¿
+#ç”Ÿæˆå™¨è¡¨è¾¾å¼
+#è¿™ä¸ªæš‚æ—¶ä¸ç ”ç©¶
